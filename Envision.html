@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envision — Support</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #6b6b70;
+    --line: #e6e6e8;
+    --blue: #178CF2;
+    --bg: #fbfbfa;
+    --card: #ffffff;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+  header {
+    padding: 64px 0 40px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .logo {
+    font-size: 38px;
+    font-weight: 700;
+    font-style: italic;
+    letter-spacing: -1px;
+    margin-bottom: 8px;
+  }
+  .tagline {
+    color: var(--muted);
+    font-size: 16px;
+  }
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: rgba(251,251,250,0.92);
+    backdrop-filter: blur(8px);
+    font-size: 15px;
+  }
+  nav a { color: var(--blue); text-decoration: none; font-weight: 500; }
+  nav a:hover { text-decoration: underline; }
+  section { padding: 48px 0; border-bottom: 1px solid var(--line); }
+  h2 { font-size: 24px; font-weight: 600; margin-bottom: 18px; letter-spacing: -0.3px; }
+  h3 { font-size: 17px; font-weight: 600; margin: 26px 0 8px; }
+  p { margin-bottom: 14px; color: #2a2a2e; }
+  .muted { color: var(--muted); }
+  a.email {
+    color: var(--blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  a.email:hover { text-decoration: underline; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 18px 0;
+  }
+  .faq-q { font-weight: 600; margin-bottom: 4px; }
+  .faq-a { color: var(--muted); margin-bottom: 20px; }
+  .faq-a:last-child { margin-bottom: 0; }
+  footer {
+    padding: 36px 0 56px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .pill {
+    display: inline-block;
+    background: #eef4fe;
+    color: #0C447C;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  ul { margin: 0 0 14px 20px; color: #2a2a2e; }
+  li { margin-bottom: 6px; }
+
+  /* Marketing section */
+  .hero {
+    padding: 72px 0 56px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 44px;
+    font-weight: 700;
+    letter-spacing: -1.2px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .hero h1 .accent { color: var(--blue); }
+  .hero .sub {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-primary {
+    background: var(--blue);
+    color: white;
+    box-shadow: 0 6px 20px rgba(23,140,242,0.3);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(23,140,242,0.4); }
+  .btn-secondary {
+    background: var(--card);
+    color: var(--ink);
+    border: 1px solid var(--line);
+  }
+  .btn-secondary:hover { transform: translateY(-2px); }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 12px;
+  }
+  @media (max-width: 600px) { .feature-grid { grid-template-columns: 1fr; } }
+  .feature {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .feature .icon {
+    width: 46px; height: 46px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    margin-bottom: 14px;
+  }
+  .feature h3 { margin: 0 0 6px; font-size: 17px; }
+  .feature p { color: var(--muted); font-size: 14px; margin: 0; }
+
+  .how-step {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 24px;
+  }
+  .how-num {
+    flex-shrink: 0;
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: var(--blue);
+    color: white;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 15px;
+  }
+  .how-step h3 { margin: 4px 0 4px; }
+  .how-step p { color: var(--muted); margin: 0; }
+
+  .social-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 8px; }
+  .social-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px;
+    border-radius: 30px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 15px;
+    transition: transform 0.15s;
+  }
+  .social-link:hover { transform: translateY(-2px); }
+  .video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+  }
+  @media (max-width: 600px) { .video-grid { grid-template-columns: 1fr; } }
+  .video-placeholder {
+    aspect-ratio: 9 / 16;
+    background: linear-gradient(160deg, #eef4fe, #f6f0fe);
+    border: 1px dashed #c9d6e8;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+    padding: 16px;
+  }
+  .video-placeholder .play {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: white; display:flex; align-items:center; justify-content:center;
+    font-size: 18px; color: var(--blue); margin-bottom: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  }</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="logo">Envision</div>
+    <div class="tagline">The GPS for your goals — reroutes when life happens, remembers where you've been.</div>
+  </div>
+</header>
+
+<nav>
+  <a href="#features">Features</a>
+  <a href="#support">Support</a>
+  <a href="#faq">FAQ</a>
+  <a href="#privacy">Privacy</a>
+</nav>
+
+<div class="wrap">
+
+  <section id="features" style="border-bottom:1px solid var(--line);">
+    <div class="hero">
+      <h1>Big goals,<br>broken into <span class="accent">daily wins.</span></h1>
+      <p class="sub">Envision turns your biggest goals into a day-by-day plan — and reroutes automatically when life gets in the way.</p>
+      <div class="cta-row">
+        <a href="#" class="btn btn-primary">Download on the App Store</a>
+        <a href="#how" class="btn btn-secondary">See how it works</a>
+      </div>
+    </div>
+
+    <h2 style="text-align:center; margin-bottom:8px;">Everything in one place</h2>
+    <p class="muted" style="text-align:center; margin-bottom:32px;">A planner, a goal engine, and a journal — finally working together.</p>
+
+    <div class="feature-grid">
+      <div class="feature">
+        <div class="icon" style="background:#eef4fe;">🎯</div>
+        <h3>Visions</h3>
+        <p>Set a goal with a deadline. Envision breaks it into daily tasks so you always know exactly what to do today.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:#eaf6ec;">🔁</div>
+        <h3>Rhythms</h3>
+        <p>Build lasting habits — pushups, miles, prayer, reading — with weekly targets and a consistency map that keeps you honest.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:#fdf0e6;">📝</div>
+        <h3>Memory Hooks</h3>
+        <p>One sentence and a photo a day. A year from now, you'll remember not just what you did, but who you were.</p>
+      </div>
+      <div class="feature">
+        <div class="icon" style="background:#f3eefe;">📅</div>
+        <h3>Smart Calendar</h3>
+        <p>Syncs with Apple Calendar and shows your whole life — events, tasks, and memories — in one clean view.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="how" style="border-bottom:1px solid var(--line);">
+    <span class="pill">How it works</span>
+    <h2>From big goal to done — in three steps</h2>
+    <div style="margin-top:24px;">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <div>
+          <h3>Set your Vision</h3>
+          <p>Tell Envision what you want to achieve and when — study for an exam, run a half marathon, finish a project.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <div>
+          <h3>Get your daily plan</h3>
+          <p>Envision does the planning math for you, breaking the goal into bite-sized daily tasks you can actually finish.</p>
+        </div>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <div>
+          <h3>Stay on track — even when life happens</h3>
+          <p>Miss a day? No guilt. Envision recalculates and reroutes your plan, like a GPS for your goals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="follow" style="border-bottom:1px solid var(--line);">
+    <span class="pill">Follow along</span>
+    <h2>Watch us build Envision</h2>
+    <p>We're a small family team building Envision in public. Follow the journey, see new features first, and tell us what you want next.</p>
+    <div class="social-row">
+      <a href="https://www.tiktok.com/@YOURHANDLE" class="social-link" target="_blank" rel="noopener">▶ TikTok</a>
+      <a href="https://www.instagram.com/YOURHANDLE" class="social-link" target="_blank" rel="noopener">◎ Instagram</a>
+    </div>
+    <div class="video-grid">
+      <div class="video-placeholder"><div class="play">▶</div>Paste your TikTok embed here</div>
+      <div class="video-placeholder"><div class="play">▶</div>Paste your TikTok embed here</div>
+      <div class="video-placeholder"><div class="play">▶</div>Paste your TikTok embed here</div>
+    </div>
+  </section>
+
+  <section id="support">
+    <span class="pill">Support</span>
+    <h2>Need a hand?</h2>
+    <p>We're a small team and we read every message. If something isn't working, you have a question, or you'd like to suggest a feature, reach out and we'll get back to you as soon as we can.</p>
+    <div class="card">
+      <h3 style="margin-top:0;">Contact us</h3>
+      <p style="margin-bottom:0;">Email: <a class="email" href="mailto:support@envisionapp.com">support@envisionapp.com</a></p>
+    </div>
+    <p class="muted">We typically respond within 1–2 business days.</p>
+  </section>
+
+  <section id="faq">
+    <span class="pill">FAQ</span>
+    <h2>Frequently asked questions</h2>
+
+    <div class="faq-q">What is a Vision?</div>
+    <div class="faq-a">A Vision is a goal with a deadline. You tell Envision what you want to achieve and when — like studying for an exam or training for a race — and it automatically breaks the goal into daily tasks so you always know what to do today.</div>
+
+    <div class="faq-q">What's the difference between a Vision and a Rhythm?</div>
+    <div class="faq-a">A Vision has a finish line — it ends when you reach the deadline. A Rhythm is an ongoing habit you want to build steadily over time, like a weekly pushup target or daily reading, with no end date.</div>
+
+    <div class="faq-q">What is a Memory Hook?</div>
+    <div class="faq-a">A Memory Hook is a short note — often just one sentence — about your day, attached to that date on your calendar. It's a lightweight way to remember not just what you did, but who you were that day. You can attach photos too.</div>
+
+    <div class="faq-q">Where is my data stored?</div>
+    <div class="faq-a">Your data is stored locally on your device. We don't sell it or share it. See our Privacy Policy below for full details.</div>
+
+    <div class="faq-q">What happens if I miss a day of a Vision?</div>
+    <div class="faq-a">Nothing bad — that's the whole point. Envision automatically recalculates and redistributes your remaining tasks across the days you have left, so you stay on track without the guilt.</div>
+
+    <div class="faq-q">How do I delete my data?</div>
+    <div class="faq-a">Because your data lives on your device, deleting the app removes your data. You can also delete individual Visions, Rhythms, and Memory Hooks at any time within the app.</div>
+
+    <div class="faq-q">Do you have an Android version?</div>
+    <div class="faq-a">Not yet — Envision is currently iPhone-only. Android is on our roadmap for the future.</div>
+  </section>
+
+  <section id="privacy">
+    <span class="pill">Privacy Policy</span>
+    <h2>Privacy Policy</h2>
+    <p class="muted">Last updated: [INSERT DATE]</p>
+
+    <p>Envision ("we," "our," or "the app") is built with your privacy as a priority. This policy explains what data the app handles and how. By using Envision, you agree to the practices described here.</p>
+
+    <h3>The short version</h3>
+    <p>Envision stores the information you create — your Visions, Rhythms, to-dos, Memory Hooks, and any photos you attach — locally on your device. We do not sell your data, we do not share it with advertisers, and we do not maintain a copy of your personal content on our own servers.</p>
+
+    <h3>Information stored on your device</h3>
+    <p>When you use Envision, the following is saved locally on your iPhone so the app can function:</p>
+    <ul>
+      <li>Goals and tasks you create (Visions, Rhythms, To-Dos, Schedule Blocks)</li>
+      <li>Journal entries and notes (Memory Hooks)</li>
+      <li>Photos you choose to attach to Memory Hooks</li>
+      <li>Your in-app preferences and settings</li>
+    </ul>
+    <p>This information stays on your device. If you delete the app, this data is removed.</p>
+
+    <h3>Calendar access</h3>
+    <p>If you choose to connect Apple Calendar, Envision accesses your calendar events so it can display them alongside your tasks and find open time for scheduling. This calendar information is used only within the app on your device to power these features. We do not upload, store, or share your calendar data on our servers. You can revoke calendar access at any time in your device's Settings.</p>
+
+    <h3>Notifications</h3>
+    <p>If you enable reminders, Envision uses your device's notification system to alert you. You can turn notifications on or off at any time in your device settings.</p>
+
+    <h3>Photos</h3>
+    <p>If you choose to attach a photo to a Memory Hook, the app accesses your photo library only to let you select that image. The photo is stored within the app on your device. We do not upload your photos to any server.</p>
+
+    <h3>Analytics and third parties</h3>
+    <p>The app may use Apple's standard, privacy-preserving tools (such as basic crash reporting through App Store Connect) to help us fix bugs and improve stability. This information is aggregated and does not identify you personally. We do not use third-party advertising or tracking services.</p>
+
+    <h3>Children's privacy</h3>
+    <p>Envision is not directed at children under 13, and we do not knowingly collect personal information from children.</p>
+
+    <h3>Changes to this policy</h3>
+    <p>As Envision adds new features — such as cloud sync, account creation, or AI-powered planning — this policy will be updated to reflect any changes in how data is handled, and the "last updated" date above will change accordingly. We encourage you to review this page periodically.</p>
+
+    <h3>Contact</h3>
+    <p>Questions about your privacy? Email us at <a class="email" href="mailto:support@envisionapp.com">support@envisionapp.com</a>.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Envision &middot; Made with care by a small family team.
+  </div>
+</footer>
+
+</body>
+</html>
